@@ -9,42 +9,27 @@ module.exports = function(app) {
 
   //signup
   app.get('/signup', function (req, res) {
-    console.log('get sign up page');
-  });
-
-  //create user
-  app.post('/users', function (req, res) {
-    console.log('create user profile');
+    res.sendfile('./public/views/signup.html');
   });
 
   //login
   app.get('/login', function (req, res) {
-    console.log('create session - login page');
+    res.sendfile('./public/views/login.html');
   });
 
   //show user profile
   app.get('/users/:username', function (req, res) {
-    console.log('show user profile');
-  });
-
-  //edit user profile
-  app.put('/users/:username', function (req, res) {
-    console.log('edit user profile');
-  });
-
-  //delete user profile
-  app.delete('/users/:username', function (req, res) {
-    console.log('delete user profile');
+    res.sendfile('./public/views/user.html');
   });
 
   //exercise index
   app.get('/exercises', function (req, res) {
-    console.log('show all exercises');
+    res.sendfile('./public/views/exercise_index.html');
   });
 
   //show one exercise
   app.get('/exercises/:exerciseId', function (req, res) {
-    console.log('show one exercise');
+    res.sendfile('./public/views/exercise.html');
   });
 
   // redirect all other paths to index
