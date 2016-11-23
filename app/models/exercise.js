@@ -16,5 +16,5 @@ var ExerciseSchema = new Schema({
   comment: [ Comment.schema ]
 });
 
-var Exercise = mongoose.mode('Exercise', ExerciseSchema);
+var Exercise = mongoose.model('Exercise', ExerciseSchema);
 module.exports = Exercise;
