@@ -4,9 +4,10 @@ console.log('app.js is liked');
 // require dependencies
 var express = require('express');
 var app = express()
-var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/my_database');
+var database = require('./config/database');
+mongoose.connect(database.url);
+var bodyParser = require('body-parser');
 
 // homepage
 app.get('/', function (req, res) {
@@ -15,39 +16,45 @@ app.get('/', function (req, res) {
 
 //signup
 app.get('/signup', function (req, res) {
-  console.log('this is the sign up page');
+  console.log('get sign up page');
 });
 
 //create user
 app.post('/users', function (req, res) {
-  console.log('create user route');
-})
+  console.log('create user profile');
+});
 
 //login
 app.get('/login', function (req, res) {
-  console.log('this is the login page');
+  console.log('create session - login page');
 });
 
 //show user profile
 app.get('/users/:username', function (req, res) {
-  console.log('this is the user profile page');
+  console.log('show user profile');
 });
 
 //edit user profile
 app.put('/users/:username', function (req, res) {
-  console.log('edit user profile here');
-})
+  console.log('edit user profile');
+});
+
+//delete user profile
+app.delete('/users/:username', function (req, res) {
+  console.log('delete user profile');
+});
 
 //exercise index
 app.get('/exercises', function (req, res) {
-  console.log('this is the exercise index page');
+  console.log('show all exercises');
 });
 
+//show one exercise
 app.get('/exercises/:exerciseId', function (req, res) {
-  console.log('this is one exercise page');
+  console.log('show one exercise');
 });
 
 //server listening
-app.listen(3000, function () {
-  console.log('Listening on port 3000!')
-})
+app.listen(process.env.PORT || 3000, function () {
+  console.log('Express server is running on http://localhost:3000/');
+});
