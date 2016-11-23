@@ -7,14 +7,14 @@ module.exports = function(app) {
     res.sendfile('./public/views/index.html');
   });
 
-  //signup
-  app.get('/signup', function (req, res) {
-    res.sendfile('./public/views/signup.html');
-  });
-
   //login
   app.get('/login', function (req, res) {
     res.sendfile('./public/views/login.html');
+  });
+
+  //create user profile
+  app.get('/signup', function (req, res) {
+    res.sendfile('./public/views/signup.html');
   });
 
   //show user profile
@@ -22,15 +22,25 @@ module.exports = function(app) {
     res.sendfile('./public/views/user.html');
   });
 
+  //edit user profile
+
+  //delete user profile
+
   //exercise index
   app.get('/exercises', function (req, res) {
     res.sendfile('./public/views/exercise_index.html');
   });
 
-  //show one exercise
+  //create exercise
+
+  //show exercise
   app.get('/exercises/:exerciseId', function (req, res) {
     res.sendfile('./public/views/exercise.html');
   });
+
+  //edit exercise
+
+  //delete exercise
 
   // redirect all other paths to index
   app.get('*', function homepage (req, res) {
