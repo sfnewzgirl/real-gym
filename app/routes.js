@@ -14,7 +14,7 @@ module.exports = function(app) {
   });
 
   //show user profile
-  app.get('/users/:username', function (req, res) {
+  app.get('/api/users/:username', function (req, res) {
     db.User.findOne({_id: req.params.id}, function(error, user) {
       if (error) {
         res.send('Something went wrong' + error);
@@ -28,7 +28,7 @@ module.exports = function(app) {
   //delete user profile
 
   //exercise index
-  app.get('/exercises', function (req, res) {
+  app.get('/api/exercises', function (req, res) {
     db.Exercise.find(function(error, exercises) {
       if (error) {
         res.send('Something went wrong' + error);
@@ -40,7 +40,7 @@ module.exports = function(app) {
   //create exercise
 
   //show exercise
-  app.get('/exercises/:exerciseId', function (req, res) {
+  app.get('/api/exercises/:exerciseId', function (req, res) {
     db.Exercise.findOne({_id: req.params.id}, function(error, exercise) {
       if (error) {
         res.send('Something went wrong' + error);
