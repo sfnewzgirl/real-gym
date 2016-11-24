@@ -3,11 +3,6 @@ var path = require('path');
 
 module.exports = function(app) {
 
-  //homepage
-  app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public', '/views/index.html'));
-  });
-
   //login
   app.get('/login', function (req, res) {
     res.sendFile(path.join(__dirname, '../public', '/views/login.html'));
@@ -20,7 +15,12 @@ module.exports = function(app) {
 
   //show user profile
   app.get('/users/:username', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public', '/views/user.html'));
+    db.User.findOne({_id: req.params.id}, function(error, user) {
+      if (error) {
+        res.send('Something went wrong' + error);
+      }
+      res.json(user);
+    });
   });
 
   //edit user profile
@@ -29,14 +29,24 @@ module.exports = function(app) {
 
   //exercise index
   app.get('/exercises', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public', '/views/exercise_index.html'));
+    db.Exercise.find(function(error, exercises) {
+      if (error) {
+        res.send('Something went wrong' + error);
+      }
+      res.json(exercises);
+    });
   });
 
   //create exercise
 
   //show exercise
   app.get('/exercises/:exerciseId', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public', '/views/exercise.html'));
+    db.Exercise.findOne({_id: req.params.id}, function(error, exercise) {
+      if (error) {
+        res.send('Something went wrong' + error);
+      }
+      res.json(user);
+    });
   });
 
   //edit exercise
