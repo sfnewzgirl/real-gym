@@ -1,25 +1,26 @@
 var models = require('./models');
+var path = require('path');
 
 module.exports = function(app) {
 
   //homepage
   app.get('/', function (req, res) {
-    res.sendfile('./public/views/index.html');
+    res.sendFile(path.join(__dirname, '../public', 'views/index.html'));
   });
 
   //login
   app.get('/login', function (req, res) {
-    res.sendfile('./public/views/login.html');
+    res.sendFile('views/login.html');
   });
 
   //create user profile
   app.get('/signup', function (req, res) {
-    res.sendfile('./public/views/signup.html');
+    res.sendFile('../public/views/signup.html');
   });
 
   //show user profile
   app.get('/users/:username', function (req, res) {
-    res.sendfile('./public/views/user.html');
+    res.sendFile('../public/views/user.html');
   });
 
   //edit user profile
@@ -28,14 +29,14 @@ module.exports = function(app) {
 
   //exercise index
   app.get('/exercises', function (req, res) {
-    res.sendfile('./public/views/exercise_index.html');
+    res.sendFile('../public/views/exercise_index.html');
   });
 
   //create exercise
 
   //show exercise
   app.get('/exercises/:exerciseId', function (req, res) {
-    res.sendfile('./public/views/exercise.html');
+    res.sendFile('../public/views/exercise.html');
   });
 
   //edit exercise

@@ -14,6 +14,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(express.static(__dirname + '/public'));
 
+//require server side controllers??
+
 // load the routes
 require('./app/routes')(app);
 
