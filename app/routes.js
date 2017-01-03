@@ -1,5 +1,6 @@
 var models = require('./models');
 var path = require('path');
+var db = require('../config/database');
 
 module.exports = function(app) {
 
@@ -13,9 +14,9 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, '../public', '/views/signup.html'));
   });
 
-  //show user profile
+  //show user profile NEEDS TESTING!!!
   app.get('/api/users/:username', function (req, res) {
-    db.User.findOne({_id: req.params.id}, function(error, user) {
+    db.User.findOne({_username: req.params.username}, function(error, user) {
       if (error) {
         res.send('Something went wrong' + error);
       }

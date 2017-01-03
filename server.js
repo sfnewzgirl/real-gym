@@ -1,13 +1,13 @@
 // sanity check
-console.log('app.js is liked');
+console.log('server.js is liked');
 
 // require dependencies
 var express = require('express');
-var app = express()
+var app = express();
 var mongoose = require('mongoose');
 
-var database = require('./config/database');
-mongoose.connect(database.url);
+var db = require('./config/database');
+mongoose.connect(db.url);
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
