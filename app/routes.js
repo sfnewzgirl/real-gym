@@ -1,8 +1,12 @@
+var express = require('express');
+var router = express.Router();
+module.exports = router;
+
 var models = require('./models');
 var path = require('path');
 var db = require('../config/database');
 
-module.exports = function(app) {
+function() {
 
   //login
   app.get('/login', function (req, res) {
