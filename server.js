@@ -17,7 +17,7 @@ app.use(express.static(__dirname + '/public'));
 //require server side controllers??
 
 // load the routes
-require('./app/routes.js')(app);
+var routes = require('./app/routes.js')(app);
 
 //server listening
 app.listen(process.env.PORT || 3000, function () {
