@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended: false}));
+var parseUrlencoded = bodyParser.urlencoded({extended: false});
 
 router.route('/')
   // get all exercises
